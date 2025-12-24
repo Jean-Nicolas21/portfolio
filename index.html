@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jean-Nicolas | Fullstack Developer Student</title>
+    <meta name="description" content="Portfolio of Jean-Nicolas, a developer student in Dijon. Exploring the path from low-level C programming to modern Fullstack web development.">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Jean-Nicolas | Portfolio">
+    <meta property="og:description" content="Check out my coding journey and projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jean-nicolas21.github.io/portfolio/">
+
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header role="banner">
+    <nav class="container" aria-label="Main navigation">
+        <a href="#hero" class="logo-link" aria-label="Jean-Nicolas Home">
+            <div class="logo" aria-hidden="true">JN<span>.dev</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main-content" role="main">
+
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+        <div class="container">
+            <h1>From human systems to <span class="highlight">digital ecosystems.</span></h1>
+            <p>Fullstack Developer Student based in Dijon, building with empathy and logic.</p>
+            <div class="cta-group">
+                <a href="#projects" class="btn primary">View My Projects</a>
+                <a href="#contact" class="btn secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="container" aria-labelledby="about-title">
+        <h2 id="about-title" class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div class="about-content">
+                <p class="lead">
+                    <strong>From Social Work to Source Code.</strong>
+                </p>
+                <p>
+                    After working as a specialized educator in child protection, I pivoted my dedication to the digital world.
+                    Currently pursuing a <strong>Fullstack Bachelor's degree at Coda Dijon</strong>, I combine my past experience
+                    in human psychology with modern development.
+                </p>
+                <p>
+                    My background makes me naturally focused on <strong>UI/UX Design</strong>. I believe that a great
+                    application must be as empathetic as it is functional.
+                </p>
+                <p>
+                    Starting with <strong>C programming</strong> to master algorithms was quite the "initiation ceremony"—a tough
+                    but rewarding challenge that fueled my curiosity for how things work under the hood.
+                </p>
+                <p>
+                    Outside of VS Code, I'm a video game enthusiast, a weightlifting regular, and a music lover.
+                    I’m always looking for the next thing to learn.
+                </p>
+
+                <div class="hiring-badge">
+                    <span>🎯 Looking for an apprenticeship - Aug/Sept 2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+    <h2 class="section-title">Technical Stack</h2>
+    <p class="skills-intro">My toolbox is constantly expanding. I learn new concepts and technologies every month to stay at the edge of modern development.</p>
+
+    <div class="skills-grid">
+        <article class="skill-category">
+            <h3>Frontend</h3>
+            <ul>
+                <li>HTML5 / CSS3 (Semantic & Responsive)</li>
+            </ul>
+        </article>
+
+        <article class="skill-category">
+            <h3>Backend & Database</h3>
+            <ul>
+                <li>PHP / Symfony</li>
+                <li>PostgreSQL</li>
+                <li>C Language (Algorithms)</li>
+            </ul>
+        </article>
+
+        <article class="skill-category">
+            <h3>Workflow & Quality</h3>
+            <ul>
+                <li>Git & GitHub</li>
+                <li>Clean Code Basics</li>
+                <li>Eco-conception & Linters</li>
+            </ul>
+        </article>
+    </div>
+</section>
+
+    <section id="projects" class="container" aria-labelledby="projects-title">
+        <h2 id="projects-title" class="section-title">Main Project</h2>
+
+        <div class="projects-featured">
+            <article class="project-card">
+                <input type="checkbox" id="toggle-lowify" class="project-toggle-check">
+
+                <header class="project-header">
+                    <div class="project-meta">
+                        <span class="badge">PHP / PostgreSQL / Data-Link</span>
+                        <h3>Lowify</h3>
+                    </div>
+                    <label for="toggle-lowify" class="btn-expand" aria-label="Toggle details">
+                        <span class="text-open">View Details</span>
+                        <span class="text-close">Close</span>
+                    </label>
+                </header>
+
+                <div class="project-preview-text">
+                    <p>Connecting Backend logic to Frontend experience through raw SQL and PHP. A study on data flow and music-themed UI.</p>
+                </div>
+
+                <div class="project-details">
+                    <div class="project-gallery">
+                        <img src="assets/images/lowify-home.jpg" alt="Lowify Homepage Screenshot">
+                        <img src="assets/images/lowify-album.jpg" alt="Lowify Album View Screenshot">
+                    </div>
+                    <div class="project-description">
+                        <h4>Technical Breakdown:</h4>
+                        <ul>
+                            <li><strong>Data Flow:</strong> Full tunnel between PostgreSQL and the user interface.</li>
+                            <li><strong>SQL Interfacing:</strong> Complex queries to link artists, albums, and tracks.</li>
+                            <li><strong>Search Engine:</strong> Strict-match SQL search implementation.</li>
+                            <li><strong>UI/UX:</strong> Immersive Dark Mode with custom glow effects.</li>
+                        </ul>
+                        <div class="project-actions">
+                            <a href="https://github.com/Jean-Nicolas21/PHP-2025-coda-projects-/tree/main/004-php-lowify/app"
+                               target="_blank" rel="noopener" class="btn primary">View Code on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <h2 class="section-title">The Evolution Path</h2>
+
+        <div class="evolution-timeline">
+            <div class="timeline-line"></div>
+
+            <article class="timeline-item">
+                <input type="checkbox" id="toggle-wiki" class="project-toggle-check">
+                <label for="toggle-wiki" class="timeline-bubble">
+                    <div class="bubble-icon">W</div>
+                </label>
+                <div class="timeline-content">
+                    <h4>Wikicoda</h4>
+                    <p class="timeline-date">Team Project - Web Debut</p>
+                    <div class="timeline-hidden-content">
+                        <p>Focus on <strong>Strong Semantic HTML</strong> and collaborative Git workflow. Creating a structured knowledge base for Coda School.</p>
+                        <a href="https://github.com/Jean-Nicolas21/25-html-g1" target="_blank" rel="noopener" class="link">Source →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="timeline-item">
+                <input type="checkbox" id="toggle-c" class="project-toggle-check">
+                <label for="toggle-c" class="timeline-bubble">
+                    <div class="bubble-icon">C</div>
+                </label>
+                <div class="timeline-content">
+                    <h4>SVG Editor</h4>
+                    <p class="timeline-date">Individual Project - The Foundations</p>
+                    <div class="timeline-hidden-content">
+                        <p>Algorithmics & Math logic in C. Managing geometric shapes (points, radii, coordinates) and memory allocation.</p>
+                        <a href="https://github.com/Jean-Nicolas21/Projet-en-c-diteur-SVG" target="_blank" rel="noopener" class="link">Source →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact" class="container" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="section-title">Contact</h2>
+        <p>I'm always open to discussing new projects or internship opportunities.</p>
+        <p class="cv-notice"><em>Full CV available upon request via email or LinkedIn.</em></p>
+
+        <div class="contact-actions">
+            <a href="mailto:ton.mail@gmail.com" class="btn primary">Send an Email</a>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">JN<span>.dev</span></div>
+                <p>Fullstack Student | Transitioning from Social Work to Tech.</p>
+            </div>
+
+            <nav class="footer-socials" aria-label="Social media links">
+                <a href="https://github.com/Jean-Nicolas21" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/ton-profil" target="_blank" rel="noopener">LinkedIn</a>
+            </nav>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Jean-Nicolas. Built with semantic HTML & CSS.</p>
+            <p class="hiring-tag">Available for Apprenticeship — Aug 2026</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
