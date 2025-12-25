@@ -64,3 +64,26 @@ nav.container {
     max-width: 600px;
     margin: 0 auto 2.5rem auto; /* Centre le paragraphe et l'espace par rapport aux boutons */
 }
+
+/* --- 4. BOUTONS --- */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    border-radius: 12px;     /* Coins arrondis style moderne */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease; /* Préparation pour les futurs survols */
+    font-size: 1rem;
+}
+
+.btn.primary {
+    background-color: #1d1d1f;
+    color: #ffffff;
+}
+
+.btn.secondary {
+    background-color: transparent;
+    color: #1d1d1f;
+    border: 1px solid #d2d2d7;
+    margin-left: 1rem;       /* Espace entre les deux boutons */
+}
