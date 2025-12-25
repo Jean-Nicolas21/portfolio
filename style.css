@@ -401,3 +401,21 @@ nav.container {
     clip: auto;
     margin: 0;
 }
+
+/* --- Suppression des puces (Skills) --- */
+.skill-category ul {
+    list-style: none; /* Enlève les points noirs */
+    padding: 0;       /* Aligne parfaitement avec le titre */
+    margin: 0;
+}
+
+.skill-category li {
+    margin-bottom: 0.6rem; /* Espace légèrement les technos */
+    color: #424245;        /* Gris un peu plus doux pour les listes */
+}
+
+.skill-category h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
