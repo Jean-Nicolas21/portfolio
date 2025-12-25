@@ -54,3 +54,62 @@ header nav.container {
     align-items: center;
     text-align: center;
 }
+
+/* --- 5. DYNAMIC BACKGROUND (Les Blobs) --- */
+.blob-canvas {
+    position: fixed; /* Reste en place pendant le scroll */
+    inset: 0;
+    z-index: -2; /* Passe derrière TOUT le contenu */
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, #ffffff, #f8f9fc);
+}
+
+.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    filter: blur(90px); /* L'effet vaporeux */
+    border-radius: 50%;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+/* Couleurs nacrées et positions */
+.blob-1 {
+    background: #d4e9ff;
+    top: -10%;
+    right: -5%;
+}
+
+.blob-2 {
+    background: #f0e6ff;
+    bottom: -10%;
+    left: -5%;
+}
+
+.blob-3 {
+    background: #e6fffa;
+    top: 40%;
+    left: 20%;
+}
+
+/* Animation de flottement lent */
+/* Animation accélérée pour le test */
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(60px, -80px) scale(1.2); } /* Mouvement plus ample */
+}
+
+.blob {
+    /* On passe de 20s à 5s pour que ce soit flagrant */
+    animation: float 5s ease-in-out infinite alternate;
+}
+
+.blob-2 {
+    animation-duration: 4s;
+    animation-delay: -1s;
+}
+
+.blob-3 {
+    animation-duration: 6s;
+}
