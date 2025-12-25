@@ -1,114 +1,12 @@
-/* --- 1. RESET & BASE --- */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Pour que le padding ne casse pas la largeur */
+    box-sizing: border-box;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: -apple-system, system-ui, sans-serif;
     color: #1d1d1f;
+    background-color: #ffffff; /* Tout blanc pour l'instant */
     line-height: 1.6;
-    background-color: #ffffff; /* On commence tout blanc pour voir clair */
-}
-
-/* --- 2. STRUCTURE (Le Container) --- */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* --- 3. LE HEADER (Alignement) --- */
-header {
-    width: 100%;
-    padding: 1.5rem 0;
-}
-
-header nav.container {
-    display: flex;
-    justify-content: space-between; /* JN.dev à gauche, Menu à droite */
-    align-items: center;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: inherit;
-    font-weight: 500;
-}
-
-/* --- 4. SECTIONS (Espacement) --- */
-.section-padding {
-    padding: 5rem 0;
-}
-
-.hero {
-    height: 80vh; /* Moins haut pour l'instant pour voir la suite */
-    display: flex;
-    align-items: center;
-    text-align: center;
-}
-
-/* --- 5. DYNAMIC BACKGROUND (Les Blobs) --- */
-.blob-canvas {
-    position: fixed; /* Reste en place pendant le scroll */
-    inset: 0;
-    z-index: -2; /* Passe derrière TOUT le contenu */
-    overflow: hidden;
-    background: radial-gradient(circle at 50% 50%, #ffffff, #f8f9fc);
-}
-
-.blob {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    filter: blur(90px); /* L'effet vaporeux */
-    border-radius: 50%;
-    opacity: 0.6;
-    z-index: -1;
-}
-
-/* Couleurs nacrées et positions */
-.blob-1 {
-    background: #d4e9ff;
-    top: -10%;
-    right: -5%;
-}
-
-.blob-2 {
-    background: #f0e6ff;
-    bottom: -10%;
-    left: -5%;
-}
-
-.blob-3 {
-    background: #e6fffa;
-    top: 40%;
-    left: 20%;
-}
-
-/* Animation de flottement lent */
-@keyframes float {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(60px, -80px) scale(1.2); } /* Mouvement plus ample */
-}
-
-.blob {
-    /* On passe de 20s à 5s pour que ce soit flagrant */
-    animation: float 5s ease-in-out infinite alternate;
-}
-
-.blob-2 {
-    animation-duration: 4s;
-    animation-delay: -1s;
-}
-
-.blob-3 {
-    animation-duration: 6s;
 }
