@@ -38,3 +38,29 @@ nav.container {
     color: inherit;
     font-weight: 500;
 }
+
+/* --- 3. SECTIONS & HERO --- */
+.section-padding {
+    padding: 8rem 0; /* Un gros espace en haut et en bas pour chaque section */
+}
+
+.hero {
+    text-align: center; /* On centre tout le texte du Hero */
+    min-height: 60vh;   /* On lui donne de la hauteur pour qu'il occupe l'écran */
+    display: flex;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem; /* On grossit le titre */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: #6e6e73; /* Un gris doux style Apple pour le sous-titre */
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto; /* Centre le paragraphe et l'espace par rapport aux boutons */
+}
