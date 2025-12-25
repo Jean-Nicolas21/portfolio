@@ -134,15 +134,16 @@ nav.container {
     background-color: #e8e8ed;
 }
 
-/* --- 7. EVOLUTION TIMELINE (Version Alternée) --- */
+/* --- 7. EVOLUTION TIMELINE (Correction Complète) --- */
 .evolution-timeline {
     position: relative;
-    max-width: 1000px; /* On élargit un peu pour l'alternance */
+    max-width: 1000px;
     margin: 4rem auto;
     padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
 }
 
-/* La ligne verticale parfaitement centrée */
 .timeline-line {
     position: absolute;
     left: 50%;
@@ -151,61 +152,109 @@ nav.container {
     bottom: 0;
     width: 2px;
     background: #e8e8ed;
-    z-index: 0;
 }
 
 .timeline-item {
     position: relative;
+    width: 50%;
+    margin-bottom: 4rem;
     display: flex;
-    justify-content: flex-end; /* Par défaut, tout est à droite */
-    padding-right: 0;
-    width: 50%; /* Chaque item prend la moitié de la largeur */
-    margin-bottom: 3rem;
-    z-index: 1;
+    flex-direction: column;
 }
 
-/* On déplace un item sur deux à gauche */
+/* --- ALTERNANCE GAUCHE / DROITE --- */
 .timeline-item:nth-child(odd) {
     align-self: flex-start;
-    justify-content: flex-end;
-    padding-right: 3rem; /* Espace par rapport à la ligne */
-    left: 0;
+    padding-right: 40px;
+    text-align: right;
 }
 
 .timeline-item:nth-child(even) {
     align-self: flex-end;
-    justify-content: flex-start;
-    padding-left: 3rem; /* Espace par rapport à la ligne */
-    left: 50%; /* On le pousse de l'autre côté de la ligne */
+    padding-left: 40px;
+    text-align: left;
 }
 
-/* Positionnement des bulles sur la ligne */
+/* --- LA BULLE (Point sur la ligne) --- */
 .timeline-bubble {
     position: absolute;
     top: 20px;
-    width: 42px;
-    height: 42px;
-    background: #ffffff;
-    border: 2px solid #e8e8ed;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border: 2px solid #1d1d1f;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    z-index: 2;
+    z-index: 5;
 }
 
-/* La bulle doit être pile sur la ligne centrale */
-.timeline-item:nth-child(odd) .timeline-bubble {
-    right: -21px; /* Moitié de la largeur de la bulle */
-}
+.timeline-item:nth-child(odd) .timeline-bubble { right: -9px; }
+.timeline-item:nth-child(even) .timeline-bubble { left: -9px; }
 
-.timeline-item:nth-child(even) .timeline-bubble {
-    left: -21px; /* Moitié de la largeur de la bulle */
-}
-
-/* On ajuste le contenu pour qu'il ne prenne pas toute la place */
+/* --- LA CARTE & L'OVERLAY --- */
 .timeline-content {
+    position: relative;
+    padding: 1.5rem;
+    border-radius: 20px;
+    background: #f5f5f7; /* Gris temporaire avant le mode verre */
+    transition: all 0.3s ease;
+}
+
+.timeline-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    cursor: pointer;
+}
+
+/* --- CACHER LA CHECKBOX --- */
+.project-toggle-check {
+    display: none;
+}
+
+/* --- GESTION DE L'IMAGE --- */
+.timeline-img-container {
     width: 100%;
-    max-width: 400px;
+    height: 150px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background: #d2d2d7;
+}
+
+.timeline-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- LOGIQUE D'OUVERTURE (Version Accordéon & Liens fixés) --- */
+
+/* 1. On empêche le contenu caché de gêner la souris quand il est fermé */
+.timeline-hidden-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+/* 2. Quand le bouton est activé (Radio coché) */
+.project-toggle-check:checked ~ .timeline-content .timeline-hidden-content {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 1.5rem;
+    pointer-events: auto; /* On réactive les clics sur le texte et les liens */
+}
+
+/* 3. LE FIX POUR LE LIEN : On le fait passer au-dessus de l'overlay invisible */
+.source-link {
+    position: relative;
+    z-index: 100; /* Doit être supérieur au z-index de .timeline-overlay */
+    display: inline-block;
+}
+
+/* Interaction visuelle sur la bulle */
+.project-toggle-check:checked + .timeline-bubble {
+    background: #1d1d1f;
+    transform: scale(1.4);
 }
