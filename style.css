@@ -106,3 +106,38 @@ body {
 
 .btn.primary { background: var(--text-main); color: white; }
 .btn.secondary { border: 1px solid var(--text-main); color: var(--text-main); margin-left: 1rem; }
+
+/* --- ANIMATIONS DES BLOBS --- */
+
+@keyframes morph {
+    0% { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; }
+    33% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+    66% { border-radius: 30% 70% 70% 30% / 50% 60% 40% 40%; }
+    100% { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; }
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(20px, -30px) rotate(5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.blob {
+    /* On applique les animations */
+    animation:
+            morph 15s ease-in-out infinite,
+            float 20s ease-in-out infinite;
+}
+
+/* On décale les durées pour que le chaos paraisse naturel */
+.blob-1 { animation-duration: 18s, 25s; }
+.blob-2 { animation-duration: 22s, 30s; animation-delay: -5s; }
+.blob-3 { animation-duration: 15s, 18s; animation-delay: -2s; }
+
+/* --- OPTIMISATION DU TEXTE (L'effet nacré) --- */
+.highlight {
+    background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
