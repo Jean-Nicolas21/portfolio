@@ -115,3 +115,21 @@ nav.container {
     color: #6e6e73;
     margin-bottom: 1.5rem;
 }
+
+/* --- 6. GESTION DE LA GALERIE (2 images côte à côte) --- */
+.project-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* On crée 2 colonnes pour tes 2 images */
+    gap: 1rem;                      /* Espace entre les images */
+    width: 100%;
+    height: 250px;                  /* Hauteur fixe pour que tout soit aligné */
+    margin-bottom: 1.5rem;
+}
+
+.project-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;              /* Empêche la déformation des screenshots */
+    border-radius: 12px;            /* Coins arrondis sur chaque image */
+    background-color: #e8e8ed;
+}
