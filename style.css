@@ -10,3 +10,31 @@ body {
     background-color: #ffffff; /* Tout blanc pour l'instant */
     line-height: 1.6;
 }
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+header {
+    padding: 1.5rem 0;
+}
+
+nav.container {
+    display: flex;
+    justify-content: space-between; /* Pousse les éléments aux deux extrémités */
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;           /* Aligne les <li> horizontalement */
+    list-style: none;        /* Enlève les points noirs */
+    gap: 2rem;               /* Espace entre chaque lien */
+}
+
+.nav-links a {
+    text-decoration: none;   /* Enlève le souligné bleu */
+    color: inherit;
+    font-weight: 500;
+}
