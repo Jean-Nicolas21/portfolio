@@ -94,7 +94,6 @@ header nav.container {
 }
 
 /* Animation de flottement lent */
-/* Animation accélérée pour le test */
 @keyframes float {
     0%, 100% { transform: translate(0, 0) scale(1); }
     50% { transform: translate(60px, -80px) scale(1.2); } /* Mouvement plus ample */
