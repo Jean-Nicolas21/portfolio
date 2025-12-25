@@ -133,3 +133,79 @@ nav.container {
     border-radius: 12px;            /* Coins arrondis sur chaque image */
     background-color: #e8e8ed;
 }
+
+/* --- 7. EVOLUTION TIMELINE (Version Alternée) --- */
+.evolution-timeline {
+    position: relative;
+    max-width: 1000px; /* On élargit un peu pour l'alternance */
+    margin: 4rem auto;
+    padding: 2rem 0;
+}
+
+/* La ligne verticale parfaitement centrée */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e8e8ed;
+    z-index: 0;
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    justify-content: flex-end; /* Par défaut, tout est à droite */
+    padding-right: 0;
+    width: 50%; /* Chaque item prend la moitié de la largeur */
+    margin-bottom: 3rem;
+    z-index: 1;
+}
+
+/* On déplace un item sur deux à gauche */
+.timeline-item:nth-child(odd) {
+    align-self: flex-start;
+    justify-content: flex-end;
+    padding-right: 3rem; /* Espace par rapport à la ligne */
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    align-self: flex-end;
+    justify-content: flex-start;
+    padding-left: 3rem; /* Espace par rapport à la ligne */
+    left: 50%; /* On le pousse de l'autre côté de la ligne */
+}
+
+/* Positionnement des bulles sur la ligne */
+.timeline-bubble {
+    position: absolute;
+    top: 20px;
+    width: 42px;
+    height: 42px;
+    background: #ffffff;
+    border: 2px solid #e8e8ed;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 2;
+}
+
+/* La bulle doit être pile sur la ligne centrale */
+.timeline-item:nth-child(odd) .timeline-bubble {
+    right: -21px; /* Moitié de la largeur de la bulle */
+}
+
+.timeline-item:nth-child(even) .timeline-bubble {
+    left: -21px; /* Moitié de la largeur de la bulle */
+}
+
+/* On ajuste le contenu pour qu'il ne prenne pas toute la place */
+.timeline-content {
+    width: 100%;
+    max-width: 400px;
+}
