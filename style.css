@@ -419,3 +419,49 @@ nav.container {
     font-size: 1.1rem;
     font-weight: 600;
 }
+
+/* --- 1. GESTION DU TOGGLE (Squelette) --- */
+
+/* On cache la checkbox elle-même */
+.project-toggle-check {
+    display: none;
+}
+
+/* Par défaut, on cache le contenu détaillé */
+.project-details {
+    display: none;
+}
+
+/* Par défaut, on cache le texte "Close" */
+.btn-expand .text-close {
+    display: none;
+}
+
+/* --- 2. ÉTATS QUAND LA CASE EST COCHÉE --- */
+
+/* Si coché, on affiche les détails */
+.project-toggle-check:checked ~ .project-details {
+    display: block;
+}
+
+/* Si coché, on change les textes du bouton */
+.project-toggle-check:checked ~ .project-header .text-open {
+    display: none;
+}
+
+.project-toggle-check:checked ~ .project-header .text-close {
+    display: inline;
+}
+
+/* --- 3. STYLE DU BOUTON D'EXPANSION --- */
+.btn-expand {
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #0066cc; /* Bleu Apple */
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.btn-expand:hover {
+    text-decoration: underline;
+}
