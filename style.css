@@ -7,11 +7,33 @@
 body {
     font-family: -apple-system, system-ui, sans-serif;
     color: #1d1d1f;
-    /* Dégradé radial discret : blanc pur au centre, gris perle sur les bords */
-    background: radial-gradient(circle at 50% 50%, #ffffff 0%, #fbfbfd 100%);
-    background-attachment: fixed; /* Pour que le dégradé reste en place au scroll */
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased; /* Rend la police plus fine/nette comme chez Apple */
+    -webkit-font-smoothing: antialiased;
+
+    /* NACRE ULTRA-ACCENTUÉE */
+    background-color: #fbfbfd;
+    background-image:
+            radial-gradient(at 0% 0%, rgba(0, 242, 255, 0.3) 0, transparent 50%),  /* Cyan fort */
+            radial-gradient(at 100% 0%, rgba(191, 123, 255, 0.3) 0, transparent 50%), /* Mauve fort */
+            radial-gradient(at 100% 100%, rgba(0, 242, 255, 0.2) 0, transparent 50%),
+            radial-gradient(at 0% 100%, rgba(191, 123, 255, 0.2) 0, transparent 50%);
+    background-attachment: fixed;
+
+    /* Le secret : Un très léger grain pour simuler la matière nacrée */
+    position: relative;
+
+
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    /* Texture de bruit très fine */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02; /* Presque invisible, mais change tout au rendu */
+    pointer-events: none;
+    z-index: -1;
 }
 
 .container {
