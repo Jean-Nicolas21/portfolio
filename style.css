@@ -7,8 +7,11 @@
 body {
     font-family: -apple-system, system-ui, sans-serif;
     color: #1d1d1f;
-    background-color: #ffffff; /* Tout blanc pour l'instant */
+    /* Dégradé radial discret : blanc pur au centre, gris perle sur les bords */
+    background: radial-gradient(circle at 50% 50%, #ffffff 0%, #fbfbfd 100%);
+    background-attachment: fixed; /* Pour que le dégradé reste en place au scroll */
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Rend la police plus fine/nette comme chez Apple */
 }
 
 .container {
@@ -464,4 +467,131 @@ nav.container {
 
 .btn-expand:hover {
     text-decoration: underline;
+}
+
+/* --- DA : SCÈNE DES BULLES --- */
+
+/* Le conteneur qui reste fixe derrière tout le contenu */
+.blob-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Derrière tout */
+    overflow: hidden;
+    background-color: #ffffff; /* Fond de base propre */
+    contain: strict;
+}
+
+/* --- DA : PERLES DE VERRE NETTES --- */
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    /* On supprime TOUT blur extérieur pour une netteté totale */
+    filter: none;
+
+    /* Double bordure pour l'effet épaisseur du verre */
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    outline: 1px solid rgba(255, 255, 255, 0.2);
+    outline-offset: -4px;
+
+    /* Effet Lustré : On durcit les ombres portées */
+    box-shadow:
+            inset 15px 15px 30px rgba(255, 255, 255, 0.6), /* Reflet brillant */
+            inset -10px -10px 25px rgba(0, 0, 0, 0.05),    /* Ombre de volume */
+            0 20px 40px rgba(0, 0, 0, 0.1);                /* Ombre portée nette */
+
+    /* Animation uniquement sur la position, pas sur le flou ou l'échelle */
+    animation: floatingHigh 18s ease-in-out infinite alternate;
+
+    will-change: transform, backdrop-filter;
+    transform: translateZ(0); /* Force le rendu GPU */
+}
+
+@keyframes floatingHigh {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        /* Déplacement vers la droite et le bas + légère rotation */
+        transform: translate(100px, 50px) rotate(5deg);
+    }
+    66% {
+        /* Déplacement vers la gauche et le haut */
+        transform: translate(-50px, 120px) rotate(-5deg);
+    }
+    100% {
+        /* Retour vers un autre point pour éviter le côté robotique */
+        transform: translate(40px, -60px) rotate(3deg);
+    }
+}
+
+/* Bulle 1 : Cyan Cristallin */
+.blob-1 {
+    width: 600px;
+    height: 600px;
+    top: -50px;
+    left: -50px;
+    background: radial-gradient(circle at 30% 30%,
+    rgba(0, 242, 255, 0.3) 0%,
+    rgba(0, 242, 255, 0.1) 70%);
+    animation-duration: 40s;
+    animation-delay: 0s;
+}
+
+/* Bulle 2 : Mauve Cristallin */
+.blob-2 {
+    width: 500px;
+    height: 500px;
+    bottom: 5%;
+    right: 2%;
+    background: radial-gradient(circle at 30% 30%,
+    rgba(191, 123, 255, 0.3) 0%,
+    rgba(191, 123, 255, 0.1) 70%);
+    animation-duration: 50s;
+    animation-delay: -5s;
+}
+
+/* Bulle 3 : Petite Perle Vive */
+.blob-3 {
+    width: 100px;
+    height: 100px;
+    top: 45%;
+    left: 60%;
+    background: radial-gradient(circle at 30% 30%,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(0, 242, 255, 0.4) 100%);
+    border: 2px solid #fff;
+    display: none;
+}
+
+.glass-card {
+    /* Fond translucide (très blanc mais transparent) */
+    background: rgba(255, 255, 255, 0.4);
+
+    /* L'effet de flou dépoli (Essentiel) */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Pour Safari */
+
+    /* Bordure fine pour simuler la tranche du verre */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    /* Ombre très diffuse pour décoller la carte du fond */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+
+    border-radius: 24px; /* Un arrondi généreux style Apple */
+    padding: 2rem;
+    transition: transform 0.3s ease;
+
+    will-change: transform, backdrop-filter;
+    transform: translateZ(0); /* Force le rendu GPU */
+}
+
+/* Optionnel : un petit effet au survol */
+.glass-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.5);
 }
