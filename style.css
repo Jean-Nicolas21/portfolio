@@ -673,3 +673,165 @@ nav.container {
     background: rgba(255, 255, 255, 0.5);
 }
 
+.glass-card {
+    /* ... tes styles actuels (backdrop-filter, background) ... */
+
+    position: relative;
+    overflow: hidden; /* Pour emprisonner les reflets */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Le bord "tranchant" du verre */
+
+    /* L'effet de réfraction interne */
+    box-shadow:
+            inset 0 0 15px rgba(255, 255, 255, 0.1), /* Lueur interne */
+            0 8px 32px rgba(0, 0, 0, 0.05);       /* Ombre portée douce */
+}
+
+/* Le reflet de lumière qui balaie l'encart */
+.glass-card::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+            45deg,
+            transparent 45%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 55%
+    );
+    transform: rotate(30deg);
+    transition: all 0.6s ease;
+    pointer-events: none;
+}
+
+/* Animation au survol : le reflet bouge */
+.glass-card:hover::after {
+    left: 100%;
+    top: 100%;
+}
+
+/* Version légère pour les grands encarts (Hero, About) */
+.glass-card {
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Bordure plus fine */
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05); /* Lueur plus diffuse */
+}
+
+/* Version boostée pour l'Evolution Path (plus petit, plus "bijou") */
+.evolution-card {
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Bordure plus marquée */
+    background: rgba(255, 255, 255, 0.03); /* Un peu plus transparent */
+    box-shadow:
+            inset 0 4px 10px rgba(255, 255, 255, 0.2),
+            0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.glass-card {
+    position: relative;
+    /* Un fond très légèrement teinté pour contraster avec le blanc pur du site */
+    background: rgba(255, 255, 255, 0.03);
+
+    /* Le flou doit être puissant pour créer une différence de texture */
+    backdrop-filter: blur(25px) saturate(160%);
+    -webkit-backdrop-filter: blur(25px) saturate(160%);
+
+    /* LA SOLUTION AUX BORDURES INVISIBLES : */
+    /* 1. La bordure physique (plus opaque en haut) */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    /* 2. Le jeu d'ombres pour détacher la carte du fond blanc */
+    box-shadow:
+            inset 0 1px 1px rgba(255, 255, 255, 0.4), /* Reflet sur l'arête supérieure */
+            0 0 0 1px rgba(0, 0, 0, 0.015),           /* Micro-ligne de contour (quasi invisible mais délimite) */
+            0 15px 35px rgba(0, 0, 0, 0.05);          /* Ombre portée douce pour la profondeur */
+
+    border-radius: 24px; /* Pour garder ce look iOS/Apple très doux */
+}
+
+.glass-card {
+    /* On revient à un blanc très pur et très transparent */
+    background: rgba(255, 255, 255, 0.4);
+
+    /* On baisse le flou et on retire la saturation agressive */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* Une bordure fine et constante, sans fioritures */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    /* Une ombre portée légère pour la profondeur uniquement */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+
+    border-radius: 24px;
+    padding: 2rem;
+
+    /* On lisse la transition pour que le hover ne soit pas brutal */
+    transition: all 0.4s ease-in-out;
+}
+
+/* Un hover tout en subtilité qui ne change pas la couleur */
+.glass-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.5); /* Juste un soupçon plus opaque */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* On supprime l'effet ::after si tu l'avais ajouté, il surchargeait le rendu */
+.glass-card::after {
+    display: none;
+}
+
+/* ==========================================================================
+   FOOTER LOGO HARMONIZATION
+   ========================================================================== */
+
+/* On cible le logo spécifiquement dans le footer pour son style */
+.site-footer .logo {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+    transition: opacity 0.3s ease;
+}
+
+.site-footer .logo .firstname {
+    font-weight: 400;
+    color: #86868b; /* Gris Apple identique au header */
+}
+
+.site-footer .logo .lastname {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 1.15rem;
+
+    /* On réapplique le dégradé animé du header */
+    background: linear-gradient(
+            to right,
+            #00f2ff, /* Cyan */
+            #bf7bff, /* Mauve */
+            #00f2ff  /* Boucle */
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 8s linear infinite;
+}
+
+/* Ajustement de l'alignement dans le bloc gauche du footer */
+.footer-left .logo-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Optionnel : Un survol doux comme dans le header */
+.footer-left .logo-link:hover {
+    opacity: 0.7;
+}
+
+/* On s'assure que le texte du copyright et des réseaux est bien calé */
+.footer-right .copyright {
+    font-size: 0.8rem;
+    color: #86868b;
+    margin-top: 0.5rem;
+}
