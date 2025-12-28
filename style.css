@@ -48,7 +48,62 @@ header {
 
 /* On décale légèrement le logo vers la gauche pour l'aligner à l'œil */
 header .logo {
-    margin-left: -9.5rem; /* Ajuste ce chiffre (ex: -1.5rem ou -2rem) jusqu'à ce que ce soit parfaitement aligné avec le bas */
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.2rem; /* Taille élégante, pas trop imposante */
+    letter-spacing: -0.02em;
+    color: #1d1d1f;
+    margin-left: -9.5rem; /* On remet à zéro l'alignement pour voir où il se place naturellement */
+    transition: opacity 0.3s ease;
+}
+
+header .logo .firstname {
+    font-weight: 400; /* Plus fin pour le prénom */
+    color: #86868b;  /* Gris doux style Apple */
+}
+
+header .logo .lastname {
+    font-weight: 700; /* Plus gras pour le nom */
+    text-transform: uppercase; /* Optionnel : pour un look très "Studio" */
+    letter-spacing: 0.05em;
+    font-size: 1.15rem;
+}
+
+/* Effet de survol subtil */
+.logo-link:hover .logo {
+    opacity: 0.7;
+}
+
+/* On retire le souligné bleu par défaut des liens si présent */
+.logo-link {
+    text-decoration: none;
+}
+
+header .logo .lastname {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    /* Dégradé aux couleurs de tes perles */
+    background: linear-gradient(
+            to right,
+            #00f2ff, /* Ton Cyan */
+            #bf7bff, /* Ton Mauve */
+            #00f2ff  /* Retour au Cyan pour la boucle */
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Animation fluide et lente */
+    animation: shine 8s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
 }
 
 nav.container {
@@ -617,3 +672,4 @@ nav.container {
     transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.5);
 }
+
