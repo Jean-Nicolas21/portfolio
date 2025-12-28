@@ -1011,3 +1011,56 @@ body > header::after {
     align-items: flex-start;
     margin-bottom: 1rem;
 }
+
+.footer-socials {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: #86868b; /* Gris Apple */
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.icon-social {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    transition: transform 0.3s ease, stroke 0.3s ease;
+}
+
+/* --- EFFET AU SURVOL --- */
+.social-link:hover {
+    color: #1d1d1f; /* Devient plus noir */
+}
+
+.social-link:hover .icon-social {
+    opacity: 1;
+    transform: translateY(-2px); /* Petit saut élégant */
+    stroke: #00f2ff; /* L'icône prend ta couleur Cyan au survol */
+}
+
+.icon-social {
+    width: 20px;
+    height: 20px;
+    fill: none; /* L'IDE ne râlera plus ici */
+    stroke: currentColor;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover .icon-social {
+    stroke: #00f2ff; /* Ton Cyan */
+    opacity: 1;
+    transform: translateY(-2px);
+}
