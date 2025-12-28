@@ -835,3 +835,100 @@ nav.container {
     color: #86868b;
     margin-top: 0.5rem;
 }
+
+/* ==========================================================================
+   HEADER STICKY & GLASS EFFECT
+   ========================================================================== */
+
+header {
+    /* 1. Fixer le header en haut */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Pour qu'il passe au-dessus de tout */
+
+    padding: 1rem 0; /* Un peu plus fin pour ne pas manger trop d'espace au scroll */
+
+    /* 2. L'effet de verre dépoli */
+    background: rgba(255, 255, 255, 0.7); /* Fond blanc translucide */
+    backdrop-filter: blur(15px);          /* Le flou sur ce qui est derrière */
+    -webkit-backdrop-filter: blur(15px);   /* Support Safari */
+
+    /* 3. Une micro-bordure en bas pour séparer du reste du site */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+    transition: all 0.3s ease;
+}
+
+/* On ajuste les marges pour que le logo reste bien aligné avec le flou */
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Petit fix pour ton logo si tu trouves qu'il est trop décalé maintenant */
+header .logo {
+    margin-left: -9.9rem; /* On remet à zéro pour laisser le container gérer l'alignement */
+}
+
+/* --- LES 4 BILLES DU LOGO --- */
+.logo-dots {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin-right: 8px; /* Espace avec le prénom */
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00f2ff, #bf7bff);
+    opacity: 0.3;
+    animation: dotPulse 2s infinite ease-in-out;
+}
+
+/* Décalage de l'animation pour l'effet d'ordre */
+.dot:nth-child(2) { animation-delay: 0.4s; }
+.dot:nth-child(3) { animation-delay: 0.8s; }
+.dot:nth-child(4) { animation-delay: 1.2s; }
+
+@keyframes dotPulse {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* --- LA BARRE DE SÉPARATION DYNAMIQUE --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 1rem 0;
+
+    /* On retire l'ancienne bordure simple */
+    border-bottom: none;
+}
+
+/* On crée la ligne en dégradé avec un pseudo-élément */
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px; /* Ligne très fine */
+    background: linear-gradient(to right, #00f2ff, #bf7bff, #00f2ff);
+    background-size: 200% auto;
+    animation: shine 10s linear infinite; /* On réutilise ton animation shine */
+}
+
+/* Ajustement pour que le logo reste bien aligné avec les points */
+header .logo {
+    display: flex;
+    align-items: center;
+    margin-left: -9.9rem;
+}
+
