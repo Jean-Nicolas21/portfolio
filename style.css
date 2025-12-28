@@ -1064,3 +1064,23 @@ body > header::after {
     opacity: 1;
     transform: translateY(-2px);
 }
+
+.icon-email {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    vertical-align: middle;
+
+    /* On définit le tracé ici pour éviter les erreurs d'IDE */
+    fill: none;
+    stroke: currentColor; /* L'icône sera blanche car le texte du bouton primary est blanc */
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Petit effet au survol du bouton pour l'enveloppe */
+.btn.primary:hover .icon-email {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
