@@ -932,3 +932,45 @@ header .logo {
     margin-left: -9.9rem;
 }
 
+/* --- BOUTONS : HOVER ULTRA-LÉGER --- */
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    /* On ne transitionne que l'opacité pour la performance */
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+}
+
+/* Bouton Noir : Il devient juste un poil plus clair (gris très foncé) */
+.btn.primary {
+    background-color: #1d1d1f;
+    color: #ffffff;
+    border: none;
+}
+
+.btn.primary:hover {
+    opacity: 0.85; /* Effet de fondu très subtil */
+}
+
+/* Bouton Blanc/Verre : Il devient un poil plus blanc */
+.btn.secondary {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #1d1d1f;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-left: 0.8rem;
+}
+
+.btn.secondary:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* On garde le feedback de clic car il est très court */
+.btn:active {
+    transform: scale(0.98);
+}
