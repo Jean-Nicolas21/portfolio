@@ -115,6 +115,12 @@ nav.container {
     font-weight: 500;
 }
 
+/* Hover en mode Light (Classic) */
+.nav-links a:hover {
+    color: #bf7bff; /* Violet présent dans ton logo/DA */
+    transition: color 0.3s ease;
+}
+
 .section-padding {
     padding: 8rem 0;
 }
@@ -975,6 +981,20 @@ body > header::after {
     .timeline-item:nth-child(even) .timeline-bubble { left: 11px; }
 
     .footer-layout { flex-direction: column; gap: 2rem; text-align: center; }
+
+    /* Correction du menu mobile en mode Dark */
+    #dark-mode:checked ~ header .nav-links {
+        background: rgba(11, 15, 25, 0.98); /* Fond sombre identique au header boreal */
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    #dark-mode:checked ~ header .nav-links a {
+        color: #ffffff; /* Force le texte en blanc */
+    }
+
+    #dark-mode:checked ~ header .hamburger span {
+        background: #ffffff; /* Force les barres du hamburger en blanc */
+    }
 }
 
 /* 5. Mobile très petit (360px) */
@@ -1060,4 +1080,181 @@ body > header::after {
         margin-top: 0.5rem;
     }
 
+}
+
+.theme-controls {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
+}
+
+.btn-theme {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #86868b; /* Couleur grise de ton prénom */
+}
+
+.btn-theme svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Effet au survol */
+@media (hover: hover) {
+    .btn-theme:hover {
+        background: rgba(0, 0, 0, 0.05);
+        color: #1d1d1f;
+        transform: translateY(-2px);
+    }
+}
+
+/* Logique d'affichage (Checkboxes) */
+.theme-logic { display: none; }
+
+#light-mode:checked ~ header .to-light { display: none; }
+#dark-mode:checked ~ header .to-dark { display: none; }
+
+/* Adaptation spécifique au mode Dark pour l'icône restante */
+#dark-mode:checked ~ header .btn-theme:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #00f2ff; /* Couleur cyan pour rappeler le mode boréal */
+}
+
+/* --- CONFIGURATION DU MODE BOREAL --- */
+
+#dark-mode:checked ~ body,
+#dark-mode:checked ~ * {
+    --bg-boreal: #0b0f19;
+    --text-main: #f5f5f7;
+    --text-secondary: #a1a1a6;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+#dark-mode:checked ~ .blob-canvas {
+    background-color: #05070a; /* Fond encore plus sombre sous les blobs */
+}
+
+#dark-mode:checked ~ header {
+    background: rgba(11, 15, 25, 0.8) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#dark-mode:checked ~ main,
+#dark-mode:checked ~ .site-footer {
+    color: var(--text-main);
+}
+
+/* Modification des cartes en mode Dark */
+#dark-mode:checked ~ * .glass-card,
+#dark-mode:checked ~ * .project-card,
+#dark-mode:checked ~ * .timeline-content,
+#dark-mode:checked ~ * .contact-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Ajustement des textes secondaires (paragraphes, dates) */
+#dark-mode:checked ~ * p,
+#dark-mode:checked ~ * .firstname,
+#dark-mode:checked ~ * .footer-center,
+#dark-mode:checked ~ * .timeline-date {
+    color: var(--text-secondary);
+}
+
+/* Les titres restent bien blancs */
+#dark-mode:checked ~ * h1,
+#dark-mode:checked ~ * h2,
+#dark-mode:checked ~ * h3,
+#dark-mode:checked ~ * h4 {
+    color: #ffffff;
+}
+
+/* Bouton secondaire en mode Dark */
+#dark-mode:checked ~ * .btn.secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#dark-mode:checked ~ .blob-canvas .blob-1 {
+    background: radial-gradient(circle at 30% 30%, rgba(0, 242, 255, 0.4) 0%, transparent 70%);
+}
+
+#dark-mode:checked ~ .blob-canvas .blob-2 {
+    background: radial-gradient(circle at 30% 30%, rgba(191, 123, 255, 0.4) 0%, transparent 70%);
+}
+
+#dark-mode:checked ~ header::after {
+    opacity: 0.6;
+    height: 2px;
+    filter: drop-shadow(0 0 5px #00f2ff);
+}
+
+/* Nav en mode Boreal */
+#dark-mode:checked ~ header .nav-links a {
+    color: #ffffff;
+    opacity: 0.9;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Petit effet de halo discret */
+}
+
+#dark-mode:checked ~ header .nav-links a:hover {
+    opacity: 1;
+    color: #00f2ff; /* Rappel du cyan au survol */
+}
+
+/* Skills en mode Boreal */
+#dark-mode:checked ~ * .skill-category li {
+    color: #e2e2e6; /* Un gris très clair, presque blanc */
+}
+
+#dark-mode:checked ~ * .skill-category h3 {
+    color: #ffffff;
+}
+
+/* Liens sociaux en mode Boreal */
+#dark-mode:checked ~ * .social-link {
+    color: #a1a1a6; /* État normal */
+}
+
+#dark-mode:checked ~ * .social-link:hover {
+    color: #ffffff; /* Le texte devient blanc pur */
+}
+
+#dark-mode:checked ~ * .social-link:hover .icon-social {
+    stroke: #00f2ff; /* L'icône s'illumine en cyan */
+    opacity: 1;
+    filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.5));
+}
+
+#dark-mode:checked ~ * .about-content p,
+#dark-mode:checked ~ * .project-preview-text p,
+#dark-mode:checked ~ * .timeline-content p {
+    color: #d2d2d7; /* Plus clair que le gris standard pour compenser le fond noir */
+}
+
+/* Illumination des points en Violet/Rose au survol en mode Dark */
+#dark-mode:checked ~ header .logo-link:hover .dot {
+    opacity: 1;
+    background: #bf7bff; /* Ton violet/rose de la DA */
+    box-shadow: 0 0 10px rgba(191, 123, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+/* Optionnel : Si tu veux qu'ils soient violets par défaut (sans survol) en mode Dark */
+#dark-mode:checked ~ header .dot {
+    background: #bf7bff;
+    opacity: 0.6; /* Un peu plus visible que le réglage par défaut */
+}
+
+#dark-mode:checked ~ .site-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }

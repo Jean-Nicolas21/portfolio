@@ -19,6 +19,9 @@
 </head>
 <body>
 
+<input type="radio" name="theme-switch" id="light-mode" class="theme-logic" checked>
+<input type="radio" name="theme-switch" id="dark-mode" class="theme-logic">
+
 <div class="blob-canvas" aria-hidden="true">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
@@ -38,6 +41,28 @@
                 <span class="lastname">ARRIERO</span>
             </div>
         </a>
+
+        <div class="theme-controls">
+            <label for="dark-mode" class="btn-theme to-dark" aria-label="Switch to Boreal Mode">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-moon">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </label>
+
+            <label for="light-mode" class="btn-theme to-light" aria-label="Switch to Classic Mode">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </label>
+        </div>
 
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <label for="menu-toggle" class="hamburger" aria-label="Open menu">
