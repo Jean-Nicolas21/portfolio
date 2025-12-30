@@ -13,14 +13,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jean-nicolas21.github.io/portfolio/">
 
-    <!--<link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">-->
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <input type="radio" name="theme-switch" id="light-mode" class="theme-logic" checked>
 <input type="radio" name="theme-switch" id="dark-mode" class="theme-logic">
+<input type="checkbox" id="lang-switch" class="theme-logic">
 
 <div class="blob-canvas" aria-hidden="true">
     <div class="blob blob-1"></div>
@@ -28,7 +27,10 @@
     <div class="blob blob-3"></div>
 </div>
 
-<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-content" class="skip-link">
+    <span class="lang-en">Skip to main content</span>
+    <span class="lang-fr">Passer au contenu</span>
+</a>
 
 <header role="banner">
     <nav class="container" aria-label="Main navigation">
@@ -43,13 +45,13 @@
         </a>
 
         <div class="theme-controls">
-            <label for="dark-mode" class="btn-theme to-dark" aria-label="Switch to Boreal Mode">
+            <label for="dark-mode" class="btn-theme to-dark desktop-only" aria-label="Switch to Boreal Mode">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-moon">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             </label>
 
-            <label for="light-mode" class="btn-theme to-light" aria-label="Switch to Classic Mode">
+            <label for="light-mode" class="btn-theme to-light desktop-only" aria-label="Switch to Classic Mode">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
                     <circle cx="12" cy="12" r="5"></circle>
                     <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -62,6 +64,11 @@
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                 </svg>
             </label>
+
+            <label for="lang-switch" class="btn-theme lang-btn desktop-only" aria-label="Change language">
+                <span class="lang-en">FR</span>
+                <span class="lang-fr">EN</span>
+            </label>
         </div>
 
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -72,10 +79,26 @@
         </label>
 
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+            <li><a href="#skills"><span class="lang-en">Skills</span><span class="lang-fr">Compétences</span></a></li>
+            <li><a href="#projects"><span class="lang-en">Projects</span><span class="lang-fr">Projets</span></a></li>
+            <li><a href="#contact"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+
+            <li class="mobile-controls">
+                <div class="mobile-btns-wrapper">
+                    <label for="dark-mode" class="btn-theme to-dark" aria-label="Switch to Boreal Mode">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </label>
+                    <label for="light-mode" class="btn-theme to-light" aria-label="Switch to Classic Mode">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    </label>
+
+                    <label for="lang-switch" class="btn-theme lang-btn" aria-label="Change language">
+                        <span class="lang-en">FR</span>
+                        <span class="lang-fr">EN</span>
+                    </label>
+                </div>
+            </li>
         </ul>
     </nav>
 </header>
@@ -84,38 +107,56 @@
 
     <section id="hero" class="hero" aria-labelledby="hero-title">
         <div class="container glass-card">
-            <h1 id="hero-title">From human systems to <span class="highlight">digital ecosystems.</span></h1>
-            <p>Fullstack Developer Student based in Dijon, building with empathy and logic.</p>
+            <h1 id="hero-title">
+                <span class="lang-en">From human systems to <span class="highlight">digital ecosystems.</span></span>
+                <span class="lang-fr">Des systèmes humains aux <span class="highlight">écosystèmes numériques.</span></span>
+            </h1>
+            <p>
+                <span class="lang-en">Fullstack Developer Student based in Dijon, building with empathy and logic.</span>
+                <span class="lang-fr">Étudiant Développeur Fullstack à Dijon, alliant empathie et logique.</span>
+            </p>
             <div class="cta-group">
-                <a href="#projects" class="btn primary cta-group">View My Projects</a>
-                <a href="#contact" class="btn secondary cta-group">Get In Touch</a>
+                <a href="#projects" class="btn primary cta-group">
+                    <span class="lang-en">View My Projects</span>
+                    <span class="lang-fr">Voir mes projets</span>
+                </a>
+                <a href="#contact" class="btn secondary cta-group">
+                    <span class="lang-en">Get In Touch</span>
+                    <span class="lang-fr">Me contacter</span>
+                </a>
             </div>
         </div>
     </section>
 
     <section id="about" class="container section-padding" aria-labelledby="about-title">
         <div class="glass-card">
-            <h2 id="about-title" class="section-title">About Me</h2>
+            <h2 id="about-title" class="section-title">
+                <span class="lang-en">About Me</span>
+                <span class="lang-fr">À propos</span>
+            </h2>
             <div class="about-grid">
                 <div class="about-content">
                     <p class="lead">
-                        <strong>From Social Work to Source Code.</strong>
+                        <strong>
+                            <span class="lang-en">From Social Work to Source Code.</span>
+                            <span class="lang-fr">Du travail social au code source.</span>
+                        </strong>
                     </p>
                     <p>
-                        After working as a specialized educator in child protection, I pivoted my dedication to the digital world.
-                        Currently pursuing a <strong>Fullstack Bachelor's degree at Coda Dijon</strong>, I combine my past experience
-                        in human psychology with modern development.
+                        <span class="lang-en">After working as a specialized educator in child protection, I pivoted my dedication to the digital world. Currently pursuing a <strong>Fullstack Bachelor's degree at Coda Dijon</strong>, I combine my past experience in human psychology with modern development.</span>
+                        <span class="lang-fr">Après avoir travaillé comme éducateur spécialisé en protection de l'enfance, j'ai réorienté mon engagement vers le monde numérique. Actuellement en <strong>Bachelor Fullstack chez Coda Dijon</strong>, je fusionne mon expérience passée en psychologie humaine avec le développement moderne.</span>
                     </p>
                     <p>
-                        My background makes me naturally focused on <strong>UI/UX Design</strong>. I believe that a great
-                        application must be as empathetic as it is functional.
+                        <span class="lang-en">My background makes me naturally focused on <strong>UI/UX Design</strong>. I believe that a great application must be as empathetic as it is functional.</span>
+                        <span class="lang-fr">Mon parcours me rend naturellement sensible à l'<strong>UI/UX Design</strong>. Je suis convaincu qu'une excellente application doit être aussi empathique que fonctionnelle.</span>
                     </p>
                     <p>
-                        Starting with <strong>C programming</strong> to master algorithms was quite the "initiation ceremony"—a tough
-                        but rewarding challenge that fueled my curiosity for how things work under the hood.
+                        <span class="lang-en">Starting with <strong>C programming</strong> to master algorithms was quite the "initiation ceremony"—a tough but rewarding challenge that fueled my curiosity for how things work under the hood.</span>
+                        <span class="lang-fr">Ma formation a débuté par le <strong>langage C</strong> pour maîtriser l'algorithmique — une "cérémonie d'initiation" exigeante mais passionnante qui a nourri ma curiosité pour le fonctionnement interne des systèmes.</span>
                     </p>
                     <div class="hiring-badge">
-                        <span>Looking for an apprenticeship - Aug/Sept 2026</span>
+                        <span class="lang-en">Looking for an apprenticeship - Aug/Sept 2026</span>
+                        <span class="lang-fr">Recherche alternance - Août/Sept 2026</span>
                     </div>
                 </div>
             </div>
@@ -124,8 +165,14 @@
 
     <section id="skills" class="container section-padding">
         <div class="glass-card">
-            <h2 class="section-title">Technical Stack</h2>
-            <p class="skills-intro">My toolbox is constantly expanding. I learn new concepts and technologies every month.</p>
+            <h2 class="section-title">
+                <span class="lang-en">Technical Stack</span>
+                <span class="lang-fr">Stack Technique</span>
+            </h2>
+            <p class="skills-intro">
+                <span class="lang-en">My toolbox is constantly expanding. I learn new concepts and technologies every month.</span>
+                <span class="lang-fr">Ma boîte à outils s'agrandit. J'apprends de nouveaux concepts et technologies chaque mois.</span>
+            </p>
 
             <div class="skills-grid">
                 <article class="skill-category">
@@ -140,7 +187,7 @@
                     <ul>
                         <li>PHP / Symfony</li>
                         <li>PostgreSQL</li>
-                        <li>C Language (Algorithms)</li>
+                        <li><span class="lang-en">C Language (Algorithms)</span><span class="lang-fr">Langage C (Algorithmie)</span></li>
                     </ul>
                 </article>
 
@@ -148,7 +195,7 @@
                     <h3>Workflow & Quality</h3>
                     <ul>
                         <li>Git & GitHub</li>
-                        <li>Clean Code Basics</li>
+                        <li><span class="lang-en">Clean Code Basics</span><span class="lang-fr">Bases du Clean Code</span></li>
                     </ul>
                 </article>
             </div>
@@ -156,7 +203,10 @@
     </section>
 
     <section id="projects" class="container section-padding" aria-labelledby="projects-title">
-        <h2 id="projects-title" class="section-title">Main Projects</h2>
+        <h2 id="projects-title" class="section-title">
+            <span class="lang-en">Main Projects</span>
+            <span class="lang-fr">Projets Marquants</span>
+        </h2>
 
         <div class="projects-featured">
             <article class="project-card glass-card">
@@ -168,13 +218,16 @@
                         <h3>Lowify</h3>
                     </div>
                     <label for="toggle-lowify" class="btn-expand" aria-label="Toggle details">
-                        <span class="text-open">View Details</span>
-                        <span class="text-close">Close</span>
+                        <span class="text-open"><span class="lang-en">View Details</span><span class="lang-fr">Voir détails</span></span>
+                        <span class="text-close"><span class="lang-en">Close</span><span class="lang-fr">Fermer</span></span>
                     </label>
                 </header>
 
                 <div class="project-preview-text">
-                    <p>Connecting Backend logic to Frontend experience through raw SQL and PHP. A study on data flow and music-themed UI.</p>
+                    <p>
+                        <span class="lang-en">Connecting Backend logic to Frontend experience through raw SQL and PHP. A study on data flow and music-themed UI.</span>
+                        <span class="lang-fr">Connecter la logique Backend à l'expérience Frontend via SQL brut et PHP. Une étude sur les flux de données et l'UI musicale.</span>
+                    </p>
                 </div>
 
                 <div class="project-details">
@@ -183,21 +236,38 @@
                         <img src="assets/images/FLowifyAlbum.jpg" alt="Lowify Album View Screenshot">
                     </div>
                     <div class="project-description">
-                        <h4>Technical Breakdown:</h4>
+                        <h4>
+                            <span class="lang-en">Technical Breakdown:</span>
+                            <span class="lang-fr">Analyse Technique :</span>
+                        </h4>
                         <ul>
-                            <li><strong>Data Flow:</strong> Full tunnel between PostgreSQL and the user interface.</li>
-                            <li><strong>SQL Interfacing:</strong> Complex queries to link artists, albums, and tracks.</li>
+                            <li>
+                                <strong><span class="lang-en">Data Flow:</span><span class="lang-fr">Flux de données :</span></strong>
+                                <span class="lang-en">Full tunnel between PostgreSQL and the user interface.</span>
+                                <span class="lang-fr">Tunnel complet entre PostgreSQL et l'interface utilisateur.</span>
+                            </li>
+                            <li>
+                                <strong><span class="lang-en">SQL Interfacing:</span><span class="lang-fr">Interfaçage SQL :</span></strong>
+                                <span class="lang-en">Complex queries to link artists, albums, and tracks.</span>
+                                <span class="lang-fr">Requêtes complexes pour lier artistes, albums et pistes.</span>
+                            </li>
                         </ul>
                         <div class="project-actions">
                             <a href="https://github.com/Jean-Nicolas21/PHP-2025-coda-projects-/tree/main/004-php-lowify/app"
-                               target="_blank" rel="noopener" class="btn primary">View Code on GitHub</a>
+                               target="_blank" rel="noopener" class="btn primary">
+                                <span class="lang-en">View Code on GitHub</span>
+                                <span class="lang-fr">Voir le code sur GitHub</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </article>
         </div>
 
-        <h2 class="section-title">The Evolution Path</h2>
+        <h2 class="section-title">
+            <span class="lang-en">The Evolution Path</span>
+            <span class="lang-fr">Le Chemin de l'Évolution</span>
+        </h2>
 
         <div class="evolution-timeline">
             <div class="timeline-line"></div>
@@ -211,9 +281,15 @@
                         <img src="assets/images/FWikicodaHome.jpg" alt="Wikicoda">
                     </div>
                     <h4>Wikicoda</h4>
-                    <p class="timeline-date">Team Project - Web Debut</p>
+                    <p class="timeline-date">
+                        <span class="lang-en">Team Project - Web Debut</span>
+                        <span class="lang-fr">Projet d'Équipe - Débuts Web</span>
+                    </p>
                     <div class="timeline-hidden-content">
-                        <p>Focus on <strong>Strong Semantic HTML</strong>...</p>
+                        <p>
+                            <span class="lang-en">Focus on <strong>Strong Semantic HTML</strong>...</span>
+                            <span class="lang-fr">Focus sur le <strong>HTML sémantique fort</strong>...</span>
+                        </p>
                         <a href="https://github.com/Jean-Nicolas21/25-html-g1" target="_blank" class="link source-link">Source →</a>
                     </div>
                 </div>
@@ -225,12 +301,17 @@
                 <div class="timeline-content glass-card">
                     <label for="toggle-c" class="timeline-overlay"></label>
                     <div class="timeline-img-container">
-                        <!--<img src="assets/images/VOTRE_IMAGE_SVG.jpg" alt="SVG Editor">-->
                     </div>
                     <h4>SVG Editor</h4>
-                    <p class="timeline-date">Individual Project</p>
+                    <p class="timeline-date">
+                        <span class="lang-en">Individual Project</span>
+                        <span class="lang-fr">Projet Individuel</span>
+                    </p>
                     <div class="timeline-hidden-content">
-                        <p>Algorithmics & Math logic in C...</p>
+                        <p>
+                            <span class="lang-en">Algorithmics & Math logic in C...</span>
+                            <span class="lang-fr">Logique algorithmique et mathématique en C...</span>
+                        </p>
                         <a href="https://github.com/Jean-Nicolas21/Projet-en-c-diteur-SVG" target="_blank" class="link source-link">Source →</a>
                     </div>
                 </div>
@@ -241,8 +322,14 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="contact-card glass-card">
-                <h2>Get in Touch</h2>
-                <p>I'm always open to discussing new projects or internship opportunities.</p>
+                <h2>
+                    <span class="lang-en">Get in Touch</span>
+                    <span class="lang-fr">Me contacter</span>
+                </h2>
+                <p>
+                    <span class="lang-en">I'm always open to discussing new projects or internship opportunities.</span>
+                    <span class="lang-fr">Je suis toujours ouvert à discuter de nouveaux projets ou d'opportunités d'alternance.</span>
+                </p>
 
                 <div class="contact-actions">
                     <a href="mailto:jn.arriero@gmail.com" class="btn primary">
@@ -250,7 +337,10 @@
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
-                        <span>Send an Email</span>
+                        <span>
+                            <span class="lang-en">Send an Email</span>
+                            <span class="lang-fr">Envoyer un Email</span>
+                        </span>
                     </a>
                 </div>
             </div>
@@ -272,7 +362,10 @@
         </div>
 
         <div class="footer-center">
-            <p>Fullstack Student | Transitioning from Social Work to Tech.</p>
+            <p>
+                <span class="lang-en">Fullstack Student | Transitioning from Social Work to Tech.</span>
+                <span class="lang-fr">Étudiant Fullstack | Transition du Social vers la Tech.</span>
+            </p>
         </div>
 
         <div class="footer-right">
@@ -293,7 +386,11 @@
                     <span>LinkedIn</span>
                 </a>
             </nav>
-            <p class="copyright">&copy; 2025 Jean-Nicolas. Built with empathy & logic.</p>
+            <p class="copyright">
+                &copy; 2025 Jean-Nicolas.
+                <span class="lang-en">Built with empathy & logic.</span>
+                <span class="lang-fr">Conçu avec empathie et logique.</span>
+            </p>
         </div>
 
     </div>
