@@ -182,6 +182,7 @@ nav.container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-bottom: 2rem;
 }
 
 .project-card h3 {
